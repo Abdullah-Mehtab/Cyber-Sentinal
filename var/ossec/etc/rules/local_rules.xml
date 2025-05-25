@@ -1,0 +1,41 @@
+<!-- Local rules -->
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example SSH rule -->
+<group name="local,syslog,sshd">
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5</group>
+  </rule>
+</group>
+
+<!-- Windows Service Monitoring -->
+<group name="windows,windows_system">
+  <rule id="100138" level="7">
+    <if_sid>61138</if_sid>
+    <description>New Windows Service Created (Email Enabled)</description>
+  </rule>
+</group>
+
+<!-- EternalBlue Detection -->
+<group name="attack,eternalblue">
+  <rule id="100900" level="14">
+    <if_sid>5712</if_sid>  <!-- Parent SMB rule (Wazuh's built-in SMB event group) -->
+    <match>MS17-010|ETERNALBLUE|0xC000000D|SMBv1</match>
+    <description>EternalBlue (MS17-010) exploit attempt detected.</description>
+    <group>attack,exploit,eternalblue</group>
+  </rule>
+</group>
+
+<!-- Meterpreter Detection -->
+<group name="malware,meterpreter">
+  <rule id="100901" level="15">
+    <if_sid>601</if_sid>  <!-- Parent process monitoring rule (Wazuh's built-in) -->
+    <match>meterpreter.exe|metsrv.dll|Reflective DLL Injection</match>
+    <description>Meterpreter payload execution detected.</description>
+    <group>malware</group>
+  </rule>
+</group>

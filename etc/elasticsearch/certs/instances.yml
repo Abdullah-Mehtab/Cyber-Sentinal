@@ -1,0 +1,4 @@
+instances:
+  - name: "elasticsearch"
+    dns: ["localhost", "elasticsearch"]
+    ip: ["0.0.0.0"]
