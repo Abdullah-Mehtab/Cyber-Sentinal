@@ -3,54 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Sentinel - Secure Your Network Affordably</title>
+    <title>Cyber Sentinel - Affordable Security Monitoring</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #1a2a44;    /* Darker blue for professionalism */
-            --secondary-color: #00aaff;  /* Bright cyan for modern accents */
-            --accent-color: #2ecc71;     /* Green for trust and security */
-            --light-bg: #f5f7fa;         /* Softer light background */
-            --dark-bg: #0f1b2d;         /* Deep navy for contrast */
-            --text-color: #333;
-            --heading-color: #1a2a44;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #1a2a3a;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #0f1c2a;
+            --text-light: #ffffff;
+            --text-muted: #b0c4de;
         }
 
         body {
             font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
             line-height: 1.6;
-            background-color: var(--light-bg);
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--heading-color);
+        main {
+            flex: 1 0 auto;
         }
 
         /* Navigation */
         .navbar {
-            background-color: var(--dark-bg);
+            background-color: var(--primary-color);
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-brand {
-            color: white !important;
-            font-size: 1.8rem;
+            color: var(--text-light) !important;
             font-weight: 700;
+            font-size: 1.8rem;
             transition: color 0.3s ease;
         }
 
@@ -59,8 +57,8 @@
         }
 
         .nav-link {
-            color: white !important;
-            font-size: 1.1rem;
+            color: var(--text-muted) !important;
+            font-weight: 400;
             margin: 0 1.5rem;
             transition: color 0.3s ease;
         }
@@ -71,8 +69,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--dark-bg), var(--primary-color));
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 8rem 0;
             text-align: center;
             position: relative;
@@ -86,80 +83,73 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%2300aaff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E') no-repeat bottom;
-            opacity: 0.2;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 0;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .btn-primary {
+        .download-btn {
             background-color: var(--secondary-color);
-            border: none;
+            color: var(--text-light);
             padding: 1rem 2.5rem;
             font-size: 1.2rem;
             border-radius: 50px;
+            text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
         }
 
-        .btn-primary:hover {
-            background-color: #0088cc;
-            transform: translateY(-2px);
+        .download-btn:hover {
+            background-color: #2980b9;
+            color: var(--text-light);
+            transform: scale(1.05);
         }
 
-        /* Section Styles */
+        /* General Section Styles */
         section {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
 
-        .section-title {
+        h2 {
             font-size: 2.5rem;
             font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 3rem;
             text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* About Section */
-        #about {
-            background-color: white;
         }
 
         /* Features Section */
         .feature-card {
+            background-color: #ffffff;
             border: none;
             border-radius: 15px;
-            background: white;
             padding: 2rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
             height: 100%;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .feature-icon {
@@ -168,126 +158,216 @@
             margin-bottom: 1.5rem;
         }
 
-        /* How It Works Section */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
+        .feature-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
         }
 
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            text-align: left;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            top: 30px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::before {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            left: -10px;
-        }
-
-        /* FAQ Section */
-        .accordion-button {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--heading-color);
-            background-color: white;
-            border: none;
-            box-shadow: none;
-            padding: 1.5rem;
-        }
-
-        .accordion-button:not(.collapsed) {
-            color: var(--secondary-color);
+        /* Technology Section */
+        #technology {
             background-color: var(--light-bg);
         }
 
-        .accordion-body {
-            background-color: white;
-            padding: 1.5rem;
+        .tech-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .tech-item i {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-item h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            color: #666;
+        }
+
+        /* Use Cases Section */
+        #use-cases {
+            background-color: var(--primary-color);
+        }
+
+        .use-case-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: background-color 0.3s ease;
+            margin-bottom: 2rem;
+            height: 100%;
+        }
+
+        .use-case-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .use-case-card h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .use-case-card p {
+            color: var(--text-muted);
+        }
+
+        /* Podcast Section */
+        .podcast-section {
+            background-color: var(--light-bg);
+        }
+
+        .podcast-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .podcast-player {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--dark-bg);
+        }
+
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-question {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
         }
 
         /* Download Section */
-        .download-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            text-align: center;
         }
 
-        .download-btn:hover {
-            background-color: #0088cc;
-            color: white;
-            transform: translateY(-2px);
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-start {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: var(--text-light);
+        }
+
+        .quick-start h3 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+        }
+
+        .quick-start ol {
+            text-align: left;
+            padding-left: 1.5rem;
         }
 
         /* Contact Section */
-        .contact-card {
-            background: white;
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: background-color 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .profile-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 4px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--secondary-color);
+            object-fit: cover;
+        }
+
+        .contact-info h4 {
+            color: var(--text-light);
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .form-control {
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #ddd;
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .contact-note {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-note a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-note a:hover {
+            color: #2980b9;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: var(--text-muted);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer h3 {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-icon {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-right: 1rem;
         }
 
         .footer a {
@@ -297,153 +377,207 @@
         }
 
         .footer a:hover {
-            color: var(--accent-color);
+            color: #2980b9;
+        }
+
+        .footer-copyright {
+            color: #78909c;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 0;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
-            .timeline::before {
-                left: 20px;
+            h2 {
+                font-size: 2rem;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px;
-                padding-right: 20px;
-                text-align: left;
+            .navbar {
+                padding: 1rem 0;
             }
 
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item::before {
-                left: 10px;
+            .nav-link {
+                margin: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Cyber Sentinel</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#podcast">Podcast</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Secure Your Network with Cyber Sentinel</h1>
-            <p>Affordable, real-time security monitoring for small businesses and home networks using cutting-edge open-source technology.</p>
-            <a href="#download" class="btn btn-primary">Get Started Now</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Cyber Sentinel</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="lead">Cyber Sentinel is a senior project by <strong>Abdullah Mehtab</strong> and <strong>Nabeel Mahmood</strong> at Forman Christian College, designed to protect small networks from cyber threats.</p>
-                    <p>Built with <strong>Wazuh</strong> and the <strong>ELK Stack</strong> on a Raspberry Pi 5, it offers an accessible solution for small businesses and homes, detecting threats with over 90% accuracy in tests.</p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='%2300aaff' opacity='0.2'/%3E%3Cpath d='M70 110 L90 130 L130 90' stroke='%232ecc71' stroke-width='10' fill='none'/%3E%3C/svg%3E" alt="Cyber Sentinel Icon" style="max-width: 200px;">
+    <main>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Cyber Sentinel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#use-cases">Use Cases</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Features Section -->
-    <section id="features" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <i class="fas fa-eye feature-icon"></i>
-                        <h3>Real-Time Monitoring</h3>
-                        <p>Detects threats like brute-force attacks and network scans instantly, keeping your network safe 24/7.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="display-4 fade-in">Cyber Sentinel</h1>
+                <p class="lead fade-in">Affordable, real-time security monitoring for small businesses and home networks. Detect threats, receive instant alerts, and gain insights with our Raspberry Pi-powered solution.</p>
+                <a href="#download" class="download-btn fade-in">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-5">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <h3>Real-time Monitoring</h3>
+                            <p>Continuous surveillance of your network with instant alerts for threats like brute-force attacks and network scans.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-chart-line feature-icon"></i>
+                            <h3>Advanced Analytics</h3>
+                            <p>Visualize security data through an intuitive Kibana dashboard for deep insights into your network's security posture.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-bell feature-icon"></i>
+                            <h3>Smart Alerts</h3>
+                            <p>Receive critical security alerts via email with detailed, easy-to-understand HTML formatting.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-cogs feature-icon"></i>
+                            <h3>Easy Setup</h3>
+                            <p>Install and configure effortlessly with our automated installer wizard for Linux.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-desktop feature-icon"></i>
+                            <h3>Cross-Platform Support</h3>
+                            <p>Monitor Windows and Linux endpoints with Wazuh agents for comprehensive coverage.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="feature-card fade-in">
+                            <i class="fas fa-tachometer-alt feature-icon"></i>
+                            <h3>Lightweight Performance</h3>
+                            <p>Runs efficiently on a Raspberry Pi 5, making it cost-effective for small networks.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <i class="fas fa-chart-pie feature-icon"></i>
-                        <h3>Advanced Analytics</h3>
-                        <p>Visualize security data with Kibana dashboards for actionable insights into threats and trends.</p>
+            </div>
+        </section>
+
+        <!-- Technology Stack Section -->
+        <section id="technology" class="py-5 bg-light">
+            <div class="container">
+                <h2>Built with Trusted Technologies</h2>
+                <div class="row">
+                    <div class="col-md-4 tech-item fade-in">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3>Wazuh</h3>
+                        <p>Open-source security tool that collects and analyzes logs to detect threats across your network.</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <i class="fas fa-bell feature-icon"></i>
-                        <h3>Smart Alerts</h3>
-                        <p>Receive customizable, detailed email notifications for critical events, formatted for clarity.</p>
+                    <div class="col-md-4 tech-item fade-in">
+                        <i class="fas fa-database"></i>
+                        <h3>ELK Stack</h3>
+                        <p>Elasticsearch, Logstash, and Kibana for storing, processing, and visualizing security data.</p>
+                    </div>
+                    <div class="col-md-4 tech-item fade-in">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Raspberry Pi</h3>
+                        <p>Affordable, low-power hardware hosting the entire monitoring system.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Log Collection</h4>
-                    <p>Wazuh agents on endpoints gather system logs and send them to the Raspberry Pi.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Threat Detection</h4>
-                    <p>Wazuh Manager analyzes logs using rules to identify threats like scans or login attempts.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Data Processing</h4>
-                    <p>Filebeat and Logstash process alerts, sending them to Elasticsearch and formatting emails.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Visualization</h4>
-                    <p>Kibana displays real-time security insights through an intuitive dashboard.</p>
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="py-5">
+            <div class="container">
+                <h2>Who Can Benefit?</h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="use-case-card fade-in">
+                            <h3>Small Businesses</h3>
+                            <p>Protect customer data and internal systems from cyber threats without breaking the bank.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="use-case-card fade-in">
+                            <h3>Home Networks</h3>
+                            <p>Secure personal devices and smart home systems with professional-grade monitoring.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="use-case-card fade-in">
+                            <h3>Educational Institutions</h3>
+                            <p>Safeguard student and faculty data with an easy-to-manage security solution.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="use-case-card fade-in">
+                            <h3>Startups</h3>
+                            <p>Focus on growth while Cyber Sentinel handles your network security needs.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Podcast Section -->
-    <section id="podcast" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 class="section-title">Listen to Our Podcast</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <p class="text-center mb-4">Hear Abdullah and Nabeel explain Cyber Sentinel's development and features.</p>
-                            <audio controls class="w-100" style="border-radius: 10px;">
+        <!-- Podcast Section -->
+        <section id="podcast" class="podcast-section">
+            <div class="container">
+                <h2>Project Podcast</h2>
+                <div class SOLID="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="podcast-card fade-in">
+                            <h3 class="text-center mb-4">Listen to Our Overview</h3>
+                            <p class="text-center">Explore Cyber Sentinel's features and benefits in this brief podcast.</p>
+                            <audio controls class="podcast-player">
                                 <source src="assets/podcast/Cyber_Sentinel_Podcast.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
@@ -451,146 +585,118 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                            What is Cyber Sentinel?
-                        </button>
-                    </h2>
-                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Cyber Sentinel is an open-source security monitoring system for small businesses and home networks, using Wazuh and the ELK Stack on a Raspberry Pi 5 to detect threats in real time.
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">What is Cyber Sentinel?</h4>
+                            <p>Cyber Sentinel is a cost-effective security monitoring system for small networks, using Wazuh and ELK Stack on a Raspberry Pi to detect threats and provide insights.</p>
+                        </div>
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">How does it work?</h4>
+                            <p>Wazuh agents send logs to the Raspberry Pi, where Wazuh Manager analyzes them. Alerts are stored in Elasticsearch, formatted by Logstash, and visualized in Kibana.</p>
+                        </div>
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">What are the system requirements?</h4>
+                            <p>A Raspberry Pi 5 with 8GB RAM running Kali Linux or Ubuntu Server, plus Windows or Linux endpoints with Wazuh agents.</p>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                            What are the system requirements?
-                        </button>
-                    </h2>
-                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Requires a Raspberry Pi 5 with 8GB RAM running Kali Linux or Ubuntu Server. Endpoints need Wazuh agents and can run Windows or Linux.
+                    <div class="col-md-6">
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">How do I install it?</h4>
+                            <p>Download the Linux installer, run it on your Raspberry Pi, install Wazuh agents on devices, and connect them to the Manager.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                            What threats can it detect?
-                        </button>
-                    </h2>
-                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Detects aggressive scans (e.g., Nmap), brute-force attacks (e.g., Hydra), exploits (e.g., EternalBlue), file changes, and more, with over 90% accuracy in tests.
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">What threats can it detect?</h4>
+                            <p>It detects scans, brute-force logins, DDoS attempts, and more, with over $90\%$ accuracy in tests.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq4">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                            How do I install it?
-                        </button>
-                    </h2>
-                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Download the installer, run it on your Raspberry Pi, and follow the wizard. Agents are then installed on endpoints. Setup takes under 30 minutes.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq5">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                            Is it suitable for large networks?
-                        </button>
-                    </h2>
-                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Optimized for small to medium networks. Larger setups may require additional hardware for optimal performance.
+                        <div class="faq-item fade-in">
+                            <h4 class="faq-question">Is it free?</h4>
+                            <p>Yes, it's open-source using free tools; the only cost is the Raspberry Pi hardware.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Download Section -->
-    <section id="download" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 class="section-title">Download Now</h2>
-            <p class="text-center mb-5">Start protecting your network with our easy-to-use tools.</p>
-            <div class="text-center">
-                <a href="assets/application/CyberSenti_Installer.py" class="download-btn" download>Download Installer</a>
-                <a href="assets/application/Wazuh-Manager-GUI.py" class="download-btn" download>Manager GUI</a>
-                <a href="SProj-FYP-CyberSentinal-Report-(Final).pdf" class="download-btn" target="_blank">Documentation</a>
+        <!-- Download Section -->
+        <section id="download" class="cta-section">
+            <div class="container">
+                <h2>Get Cyber Sentinel Now</h2>
+                <p>Start protecting your network with our easy-to-use security solution.</p>
+                <div class="text-center">
+                    <a href="assets/application/CyberSenti_Installer.py" class="download-btn me-3" download>Download Installer</a>
+                    <a href="assets/application/Wazuh-Manager-GUI.py" class="download-btn me-3" download>Manager GUI</a>
+                    <a href="SProj-FYP-CyberSentinal-Report-(Final).pdf" class="download-btn" target="_blank">View Documentation</a>
+                </div>
+                <div class="quick-start fade-in">
+                    <h3>Quick Start Guide</h3>
+                    <ol>
+                        <li>Download the installer for Linux.</li>
+                        <li>Run it on your Raspberry Pi.</li>
+                        <li>Install Wazuh agents on your devices.</li>
+                        <li>Connect agents to the Manager.</li>
+                        <li>Access the Kibana dashboard to monitor.</li>
+                    </ol>
+                </div>
             </div>
-            <p class="text-center mt-4"><strong>Requirements:</strong> Raspberry Pi 5, 8GB RAM, Kali Linux/Ubuntu Server</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="contact-card">
-                        <img src="assets/images/abd.png" alt="Abdullah Mehtab" class="profile-image">
-                        <h4>Abdullah Mehtab</h4>
-                        <p><i class="fas fa-envelope"></i> abdullahmehtab666@gmail.com</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-card">
-                        <img src="assets/images/mnm.png" alt="Nabeel Mahmood" class="profile-image">
-                        <h4>Nabeel Mahmood</h4>
-                        <p><i class="fas fa-envelope"></i> m.nabeelmahmood@gmail.com</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-card">
-                        <img src="assets/images/butt.png" alt="Sir Rauf Butt" class="profile-image">
-                        <h4>Sir Rauf Butt</h4>
-                        <p>Primary Advisor</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-6">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Your Name" required>
-                        <input type="email" class="form-control" placeholder="Your Email" required>
-                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                        <div class="text-center">
-                            <button type="submit" class="download-btn">Send Message</button>
+        <!-- Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="contact-info fade-in">
+                            <img src="assets/images/abd.png" alt="Abdullah Mehtab" class="profile-image">
+                            <h4>Abdullah Mehtab</h4>
+                            <p>Lead Developer</p>
+                            <p>abdullahmehtab666@gmail.com</p>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info fade-in">
+                            <img src="assets/images/mnm.png" alt="Nabeel Mahmood" class="profile-image">
+                            <h4>Nabeel Mahmood</h4>
+                            <p>Project Manager</p>
+                            <p>m.nabeelmahmood@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info fade-in">
+                            <img src="assets/images/butt.png" alt="Sir Rauf Butt" class="profile-image">
+                            <h4>Sir Rauf Butt</h4>
+                            <p>Project Advisor</p>
+                            <p>Associate Professor, FCCU</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-note fade-in">
+                    <p>For inquiries or support, email us at <a href="mailto:support@cybersentinel.com">support@cybersentinel.com</a></p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3><i class="fas fa-shield-alt"></i> Cyber Sentinel</h3>
-                    <p>Affordable Security Monitoring</p>
-                    <p>By Abdullah Mehtab & Nabeel Mahmood</p>
+                    <h3><i class="fas fa-shield-alt footer-icon"></i> Cyber Sentinel</h3>
+                    <p>Integrated Security Monitoring System</p>
+                    <p>Project by: Abdullah Mehtab, Nabeel Mahmood</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p><a href="https://fccollege.edu.pk" target="_blank">Forman Christian College</a></p>
-                    <p>© 2025 Cyber Sentinel. All rights reserved.</p>
+                    <p><a href="https://github.com/Abdullah-Mehtab/Cyber-Sentinal" target="_blank">GitHub Repository</a></p>
+                    <p class="footer-copyright">© 2024 Cyber Sentinel. All rights reserved.</p>
+                    <p>Forman Christian College (A Chartered University)</p>
                 </div>
             </div>
         </div>
@@ -599,13 +705,28 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
