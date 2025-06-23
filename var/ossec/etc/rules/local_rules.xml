@@ -1,0 +1,86 @@
+<!-- Local rules -->
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example SSH rule -->
+<group name="local,syslog,sshd">
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5</group>
+  </rule>
+</group>
+
+<!-- Windows Service Monitoring -->
+<group name="windows,windows_system">
+  <rule id="100138" level="7">
+    <if_sid>61138</if_sid>
+    <description>New Windows Service Created (Email Enabled)</description>
+  </rule>
+</group>
+
+<!-- EternalBlue Detection -->
+<group name="attack,eternalblue">
+  <rule id="100900" level="14">
+    <if_sid>5712</if_sid>
+    <match>MS17-010|ETERNALBLUE|0xC000000D|SMBv1</match>
+    <description>EternalBlue (MS17-010) exploit attempt detected.</description>
+    <group>attack,exploit,eternalblue</group>
+  </rule>
+</group>
+
+<!-- Meterpreter Detection -->
+<group name="malware,meterpreter">
+  <rule id="100901" level="15">
+    <if_sid>601</if_sid>
+    <match>meterpreter.exe|metsrv.dll|Reflective DLL Injection</match>
+    <description>Meterpreter payload execution detected.</description>
+    <group>malware</group>
+  </rule>
+</group>
+
+<!-- Suricata Rules -->
+<group name="suricata">
+  <rule id="100005" level="12">
+    <decoded_as>json</decoded_as>
+    <field name="suricata.sid">1000001</field>
+    <description>Suricata: BEef hook.js detected</description>
+  </rule>
+  <!-- Rule for TCP SYN Flood -->
+  <rule id="100002" level="12">
+    <if_sid>86601</if_sid>
+    <field name="suricata.sid">1000002</field>
+    <description>Suricata: Possible TCP SYN Flood Detected</description>
+    <options>no_email_alert</options>
+  </rule>
+  <!-- Rule for UDP Multicast Traffic -->
+  <rule id="100003" level="12">
+    <if_sid>86601</if_sid>
+    <field name="suricata.sid">1000003</field>
+    <description>Suricata: UDP Multicast Traffic Detected</description>
+    <options>no_email_alert</options>
+  </rule>
+</group>
+
+<!-- Cowrie Honeypot Rules -->
+<group name="cowrie,">
+  <!-- General Cowrie Event Rule -->
+  <rule id="100010" level="12">
+    <field name="eventid">cowrie\.</field>
+    <description>Cowrie Honeypot: Suspicious activity detected</description>
+    <group>recon,authentication_failed</group>
+  </rule>
+  <!-- Failed Login Attempt -->
+  <rule id="100011" level="11">
+    <field name="eventid">cowrie\.login\.failed</field>
+    <description>Cowrie Honeypot: Failed SSH login attempt</description>
+    <group>authentication_failed,brute_force</group>
+  </rule>
+  <!-- New Connection -->
+  <rule id="100012" level="11">
+    <field name="eventid">cowrie\.session\.connect</field>
+    <description>Cowrie Honeypot: New SSH connection attempt</description>
+    <group>recon</group>
+  </rule>
+</group>
