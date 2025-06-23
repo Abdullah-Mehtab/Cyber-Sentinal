@@ -136,7 +136,12 @@
             transform: scale(1.1) rotate(2deg);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
+        .download-btn.outdated-btn {
+            background-color: #cccccc;
+            color: #666666;
+        }
+        
         /* General Section Styles */
         section {
             padding: 5rem 0;
@@ -565,7 +570,7 @@
             <div class="container">
                 <img src="assets\images\logo.png" alt="Cyber Sentinel Logo" class="img-fluid d-block mx-auto mb-4" style="max-width: 300px;">
                 <h1 class="display-4">Cyber Sentinel</h1>
-                <p class="lead">Affordable, real-time security monitoring for small businesses and home networks. Detect threats, receive instant alerts, and gain insights with our Raspberry Pi-powered solution.</p>
+                <p class="lead">Affordable, real-time security monitoring for small businesses and home networks. Detect threats, receive instant alerts, and gain insights with our Linux Distro solution.</p>
                 <a href="#download" class="download-btn">Get Started Now</a>
             </div>
         </section>
@@ -614,7 +619,7 @@
                         <div class="feature-card animate-on-scroll">
                             <i class="fas fa-tachometer-alt feature-icon"></i>
                             <h3>Lightweight Performance</h3>
-                            <p>Runs efficiently on a Raspberry Pi 5, making it cost-effective for small networks.</p>
+                            <p>Runs efficiently on any lightweight device (i.e Raspberry Pi 5), making it cost-effective for small networks.</p>
                         </div>
                     </div>
                 </div>
@@ -724,17 +729,17 @@
                         </div>
                         <div class="faq-item animate-on-scroll">
                             <h4 class="faq-question">How does it work?</h4>
-                            <p>Wazuh agents send logs to the Raspberry Pi, where Wazuh Manager analyzes them. Alerts are stored in Elasticsearch, formatted by Logstash, and visualized in Kibana.</p>
+                            <p>Wazuh agents send logs to the Manager Pi, where Wazuh Manager analyzes them. Alerts are stored in Elasticsearch, formatted by Logstash, and visualized in Kibana.</p>
                         </div>
                         <div class="faq-item animate-on-scroll">
                             <h4 class="faq-question">What are the system requirements?</h4>
-                            <p>A Raspberry Pi 5 with 8GB RAM running Kali Linux or Ubuntu Server, plus Windows or Linux endpoints with Wazuh agents.</p>
+                            <p>A Kali Linux host i.e., Raspberry Pi 5 with 8GB RAM, plus Windows or Linux endpoints with Wazuh agents.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="faq-item animate-on-scroll">
                             <h4 class="faq-question">How do I install it?</h4>
-                            <p>Download the Linux installer, run it on your Raspberry Pi, install Wazuh agents on devices, and connect them to the Manager.</p>
+                            <p>Download the Image, run it on your selected host (as the manager), install Wazuh agents on devices, and connect them to the Manager.</p>
                         </div>
                         <div class="faq-item animate-on-scroll">
                             <h4 class="faq-question">What threats can it detect?</h4>
@@ -742,13 +747,13 @@
                         </div>
                         <div class="faq-item animate-on-scroll">
                             <h4 class="faq-question">Is it free?</h4>
-                            <p>Yes, it's open-source using free tools; the only cost is the Raspberry Pi hardware.</p>
+                            <p>Yes, it's open-source using free tools; the only cost is the Raspberry Pi hardware, which is completely optional.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Download Section -->
         <section id="download" class="cta-section">
             <div class="container">
@@ -756,7 +761,7 @@
                 <p>Start protecting your network with our easy-to-use security solution.</p>
                 <div class="text-center">
                     <a href="https://drive.google.com/drive/folders/15uBKQwGSm9JnIhiNd8Ahtbww7eq9xbZm?usp=drive_link" class="download-btn me-3" target="_blank">Download Manager Image (Kali)</a>
-                    <a href="assets/application/CyberSenti_Installer.py" class="download-btn me-3" download>Download Installer (outdated)</a>
+                    <a href="assets/application/CyberSenti_Installer.py" class="download-btn me-3 outdated-btn" onclick="return confirm('This installer is outdated. Please use the Manager Image instead, or proceed if you know what you are doing.');" download title="This installer is outdated.">Download Installer (outdated)</a>
                     <a href="assets/application/Wazuh-Manager-GUI.py" class="download-btn me-3" download>Manager GUI</a>
                     <a href="https://packages.wazuh.com/4.x/windows/wazuh-agent-4.5.4-1.msi" class="download-btn me-3" target="_blank">Download Wazuh Agent</a>
                     <a href="SProj-FYP-CyberSentinal-Report-(Final).pdf" class="download-btn" target="_blank">View Documentation</a>
@@ -764,12 +769,13 @@
                 <div class="quick-start animate-on-scroll">
                     <h3>Quick Start Guide</h3>
                     <ol>
-                        <li>Download the installer for Linux.</li>
-                        <li>Run it on your Raspberry Pi.</li>
+                        <li>Download the Kali Linux image for Manager.</li>
+                        <li>Run it on any applicable device .</li>
                         <li>Install Wazuh agents on your devices.</li>
                         <li>Connect agents to the Manager.</li>
                         <li>Access the Kibana dashboard to monitor.</li>
                     </ol>
+                    <p>For detailed instructions, <a href="CyberSentinel Onboarding Manual.pdf" target="_blank">view the onboarding manual</a>.</p>
                 </div>
             </div>
         </section>
